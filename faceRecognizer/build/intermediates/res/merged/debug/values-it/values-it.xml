@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="detection_detector_type_entries">
+        <item>Java</item>
+        <item>Nativo</item>
+    </string-array>
+    <string-array name="face_detection_add_photo_options">
+        <item>Scatta foto</item>
+        <item>Scegli foto dalla galleria</item>
+        <item>Scatta foto (con detection)</item>
+    </string-array>
+    <string-array name="recognition_cutmode_entries">
+        <item>Nessun taglio</item>
+        
+        <item>Taglio orizzontale</item>
+        <item>Taglio verticale</item>
+        <item>Taglio completo</item>
+    </string-array>
+    <string name="action_settings">Impostazioni</string>
+    <string name="add_person">Aggiungi persona</string>
+    <string name="alert_dialog_cancel">Annulla</string>
+    <string name="alert_dialog_delete">Elimina</string>
+    <string name="alert_dialog_delete_person_text">Sei sicuro di voler cancellare %s?</string>
+    <string name="alert_dialog_delete_person_title">Conferma cancellazione</string>
+    <string name="alert_dialog_exit_text">Sei sicuro di voler uscire?</string>
+    <string name="alert_dialog_exit_title">Conferma uscita</string>
+    <string name="alert_dialog_insert_person">Inserisci il nome</string>
+    <string name="alert_dialog_no">No</string>
+    <string name="alert_dialog_ok">Ok</string>
+    <string name="alert_dialog_person_name_label">Nome:</string>
+    <string name="alert_dialog_yes">Sì</string>
+    <string name="app_name">Riconoscimento Facciale RT</string>
+    <string name="detection_detector_type_title">Tipo di detector</string>
+    <string name="detection_face_classifier_title">Tipo di classificatore</string>
+    <string name="detection_invalid_max_relative_face_size">La dimensione relativa massima della faccia deve essere nel range [0,1]</string>
+    <string name="detection_invalid_min_neighbors">Il numero minimo di facce sovrapposte deve essere positivo</string>
+    <string name="detection_invalid_min_relative_face_size">La dimensione relativa minima della faccia deve essere nel range [0,1]</string>
+    <string name="detection_invalid_relative_face_size_ratio">La dimensione relativa massima deve essere maggiore della minima</string>
+    <string name="detection_invalid_scale_factor">Il fattore di scala deve essere maggiore di uno</string>
+    <string name="detection_max_relative_face_size_title">Dimensione relativa massima</string>
+    <string name="detection_min_neighbors_title">Minimo numero di vicini</string>
+    <string name="detection_min_relative_face_size_title">Dimensione relativa minima</string>
+    <string name="detection_scale_factor_title">Fattore di scala</string>
+    <string name="error_person_already_present">Il nome inserito è già presente</string>
+    <string name="error_person_name_not_valid">Il nome non può essere vuoto</string>
+    <string name="face_detection_add_photo_title">Aggiungi foto</string>
+    <string name="face_detection_choose_face">Scegli la faccia da riconoscere</string>
+    <string name="face_detection_retry_add_photo_title">Nessuna faccia trovata. Riprova.</string>
+    <string name="general_clear_database_confirmation">Tutte le persone sono state rimosse dal database</string>
+    <string name="general_clear_database_title">Svuota database</string>
+    <string name="general_multithreading_title">Abilita multithreading (sperimentale)</string>
+    <string name="general_restore_default_preferences_confirmation">Impostazioni ripristinate</string>
+    <string name="general_restore_default_preferences_title">Ripristina impostazioni predefinite</string>
+    <string name="invalid_number_of_gallery_columns">Il numero di colonne della galleria deve essere positivo</string>
+    <string name="management_number_of_gallery_columns_landscape_title">Numero di colonne nella galleria landscape</string>
+    <string name="management_number_of_gallery_columns_portrait_title">Numero di colonne nella galleria portrait</string>
+    <string name="no_people">Non ci sono persone nel database</string>
+    <string name="preference_detection_title">Detection</string>
+    <string name="preference_general_title">Generali</string>
+    <string name="preference_recognition_title">Riconoscimento</string>
+    <string name="progress_dialog_saving_face">Salvataggio in corso…</string>
+    <string name="recognition_cutmode_percentage_title">Percentuale di taglio</string>
+    <string name="recognition_cutmode_title">Taglio immagine</string>
+    <string name="recognition_face_size_title">Dimensione delle facce (0 per non ridimensionare)</string>
+    <string name="recognition_invalid_cutmode_percentage">La percentuale di taglio deve essere nell\'intervallo [0,25]</string>
+    <string name="recognition_invalid_threshold">La soglia di riconoscimento deve essere nell\'intervallo [0, 5000]</string>
+    <string name="recognition_lbph_grid_x_title">Colonne della griglia LBPH</string>
+    <string name="recognition_lbph_grid_y">recognition_lbph_grid_y</string>
+    <string name="recognition_lbph_grid_y_title">Righe della griglia LBPH</string>
+    <string name="recognition_lbph_invalid_grid">La dimensione della griglia deve essere maggiore di zero</string>
+    <string name="recognition_lbph_invalid_neighbours">Il numero di vicini deve essere maggiore di zero</string>
+    <string name="recognition_lbph_invalid_radius">Il raggio deve essere maggiore di zero</string>
+    <string name="recognition_lbph_neighbors_title">Numero di vicini LBPH</string>
+    <string name="recognition_lbph_radius_title">Raggio LBPH</string>
+    <string name="recognition_recognizer_type_title">Tipo di riconoscitore</string>
+    <string name="title_section1">Sezione 1</string>
+    <string name="title_section2">Sezione 2</string>
+    <string name="title_section3">Sezione 3</string>
+</resources>

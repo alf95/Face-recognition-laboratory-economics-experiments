@@ -1,0 +1,137 @@
+@startuml
+class com.alfre.facerecognition.FaceRecognitionFragment {
+- {static} String TAG
+- {static} Scalar FACE_RECT_COLOR
+- {static} Scalar FACE_UNKNOWN_RECT_COLOR
+- {static} int mDistanceThreshold
+- FaceRecognizerMainActivity activity
+- ControlledJavaCameraView mCameraView
+- int mCurrentCameraIndex
+- Mat mRgba
+- Mat mSceneForRecognizer
+- LabelledRect[] mLabelsForDrawer
+- SparseArray<Mat> thumbnails
+- int mThumbnailSize
+- int mHeight
++ boolean mMultithread
+- FaceDetector mFaceDetector
+- EIMFaceRecognizer mFaceRecognizer
+- PeopleDatabase mPeopleDatabase
+- SeekBar mThresholdBar
+- TextView mThresholdTextView
+- ImageButton mSwitchButton
+- int mMaxThreshold
+- Thread mRecognitionThread
+- Runnable mRecognitionWorker
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onActivityCreated(Bundle)
++ void swipeIn(boolean)
++ void swipeOut(boolean)
++ void onResume()
++ void onPause()
++ void onOpenCVLoaded()
++ void onCameraViewStarted(int,int)
++ void onCameraViewStopped()
++ Mat onCameraFrame(CvCameraViewFrame)
+- LabelledRect[] recognizeFaces(Mat,Rect[])
+- void drawLabel(Mat,LabelledRect)
+- Mat getThumbnail(int)
+- void setupFaceRecognition()
++ void onProgressChanged(SeekBar,int,boolean)
++ void onStartTrackingTouch(SeekBar)
++ void onStopTrackingTouch(SeekBar)
+}
+enum com.alfre.facerecognition.Type {
++  LBPH
++  FISHER
++  EIGEN
+}
+class com.alfre.facerecognition.FaceRecognitionFragment.LabelledRect {
++ Rect rect
++ String text
++ Mat thumbnail
++ int confidence
+}
+class com.alfre.facerecognition.EigenFaceRecognizer {
+- {static} long createEigenFaceRecognizer_0()
+- {static} long createEigenFaceRecognizer_1(int)
+- {static} long createEigenFaceRecognizer_2(int,double)
+}
+class com.alfre.facerecognition.LBPHFaceRecognizer {
+- {static} long createLBPHFaceRecognizer_0()
+- {static} long createLBPHFaceRecognizer_1(int)
+- {static} long createLBPHFaceRecognizer_2(int,int)
+- {static} long createLBPHFaceRecognizer_3(int,int,int,int,double)
+}
+class com.alfre.facerecognition.ControlledJavaCameraView {
++ List<String> getEffectList()
++ boolean isEffectSupported()
++ String getEffect()
++ void setEffect(String)
++ List<Size> getResolutionList()
++ void setResolution(Size)
++ Size getResolution()
+}
+class com.alfre.facerecognition.EIMFaceRecognizer {
+- {static} String MODEL_FILE_NAME
+- boolean isTrained
+- String mModelPath
+- Context mContext
+- Type mRecognizerType
+- FaceRecognizer mFaceRecognizer
+- Size faceSize
+- boolean normalize
+- CutMode mCutMode
+- double mCutPercentage
+- Rect cutRect
+- int lbphRadius
+- int eigenComponents
+- int fisherComponents
+- void computeCutRect()
+- void instantiateFaceRecognizer(Integer)
++ void resetModel()
++ {static} void deleteModelFromDisk(Context)
++ void incrementalTrain(String,int)
++ void incrementalTrain(String[],int)
++ void incrementalTrainWithLoading(Activity,String,int)
++ void incrementalTrainWithLoading(Activity,String[],int)
++ boolean train(SparseArray<Person>)
++ void trainWithLoading(Activity,SparseArray<Person>)
+- boolean isDatasetValid(SparseArray<Person>)
++ void predict(Mat,int[],double[])
+- void preprocessImage(Mat)
++ Type getType()
+}
+enum com.alfre.facerecognition.Type {
++  LBPH
++  EIGEN
++  FISHER
++ boolean isIncrementable()
++ boolean needResize()
++ int numberOfNeededClasses()
+}
+enum com.alfre.facerecognition.CutMode {
++  NO_CUT
++  EYES
++  HORIZONTAL
++  VERTICAL
++  TOTAL
+}
+class com.alfre.facerecognition.FisherFaceRecognizer {
+- {static} long createFisherFaceRecognizer_0()
+- {static} long createFisherFaceRecognizer_1(int)
+- {static} long createFisherFaceRecognizer_2(int,double)
+}
+
+
+com.alfre.utilities.Swipeable <|.. com.alfre.facerecognition.FaceRecognitionFragment
+com.alfre.utilities.FaceRecognizerMainActivity.OnOpenCVLoaded <|.. com.alfre.facerecognition.FaceRecognitionFragment
+org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2 <|.. com.alfre.facerecognition.FaceRecognitionFragment
+com.alfre.facerecognition.OnSeekBarChangeListener <|.. com.alfre.facerecognition.FaceRecognitionFragment
+android.app.Fragment <|-- com.alfre.facerecognition.FaceRecognitionFragment
+com.alfre.facerecognition.FaceRecognitionFragment +.. com.alfre.facerecognition.FaceRecognitionFragment.LabelledRect
+org.opencv.contrib.FaceRecognizer <|-- com.alfre.facerecognition.EigenFaceRecognizer
+org.opencv.contrib.FaceRecognizer <|-- com.alfre.facerecognition.LBPHFaceRecognizer
+org.opencv.android.JavaCameraView <|-- com.alfre.facerecognition.ControlledJavaCameraView
+org.opencv.contrib.FaceRecognizer <|-- com.alfre.facerecognition.FisherFaceRecognizer
+@enduml

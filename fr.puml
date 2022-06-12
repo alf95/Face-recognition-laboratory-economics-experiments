@@ -1,0 +1,131 @@
+@startuml
+class FaceRecognitionFragment {
+- {static} String TAG
+- {static} Scalar FACE_RECT_COLOR
+- {static} Scalar FACE_UNKNOWN_RECT_COLOR
+- {static} int mDistanceThreshold
+- FaceRecognizerMainActivity activity
+- ControlledJavaCameraView mCameraView
+- int mCurrentCameraIndex
+- Mat mRgba
+- Mat mSceneForRecognizer
+- LabelledRect[] mLabelsForDrawer
+- SparseArray<Mat> thumbnails
+- int mThumbnailSize
+- int mHeight
++ boolean mMultithread
+- FaceDetector mFaceDetector
+- AllFaceRecognizer mFaceRecognizer
+- PeopleDatabase mPeopleDatabase
+- SeekBar mThresholdBar
+- TextView mThresholdTextView
+- ImageButton mSwitchButton
+- int mMaxThreshold
+- Thread mRecognitionThread
+- Runnable mRecognitionWorker
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onActivityCreated(Bundle)
++ void swipeIn(boolean)
++ void swipeOut(boolean)
++ void onResume()
++ void onPause()
++ void onOpenCVLoaded()
++ void onCameraViewStarted(int,int)
++ void onCameraViewStopped()
++ Mat onCameraFrame(CvCameraViewFrame)
+- LabelledRect[] recognizeFaces(Mat,Rect[])
+- void drawLabel(Mat,LabelledRect)
+- Mat getThumbnail(int)
+- void setupFaceRecognition()
++ void onProgressChanged(SeekBar,int,boolean)
++ void onStartTrackingTouch(SeekBar)
++ void onStopTrackingTouch(SeekBar)
+}
+enum Type {
++  LBPH
++  FISHER
++  EIGEN
+}
+class FaceRecognitionFragment.LabelledRect {
++ Rect rect
++ String text
++ Mat thumbnail
++ int confidence
+}
+class AllFaceRecognizer {
+- {static} String MODEL_FILE_NAME
+- boolean isTrained
+- String mModelPath
+- Context mContext
+- Type mRecognizerType
+- FaceRecognizer mFaceRecognizer
+- Size faceSize
+- boolean normalize
+- CutMode mCutMode
+- double mCutPercentage
+- Rect cutRect
+- int lbphRadius
+- int eigenComponents
+- int fisherComponents
+- void computeCutRect()
+- void instantiateFaceRecognizer(Integer)
++ void resetModel()
++ {static} void deleteModelFromDisk(Context)
++ void incrementalTrain(String,int)
++ void incrementalTrain(String[],int)
++ void incrementalTrainWithLoading(Activity,String,int)
++ void incrementalTrainWithLoading(Activity,String[],int)
++ boolean train(SparseArray<Person>)
++ void trainWithLoading(Activity,SparseArray<Person>)
+- boolean isDatasetValid(SparseArray<Person>)
++ void predict(Mat,int[],double[])
+- void preprocessImage(Mat)
++ Type getType()
+}
+enum Type {
++  LBPH
++  EIGEN
++  FISHER
++ boolean isIncrementable()
++ boolean needResize()
++ int numberOfNeededClasses()
+}
+
+class EigenFaceRecognizer {
+- {static} long createEigenFaceRecognizer_0()
+- {static} long createEigenFaceRecognizer_1(int)
+- {static} long createEigenFaceRecognizer_2(int,double)
+}
+class LBPHFaceRecognizer {
+- {static} long createLBPHFaceRecognizer_0()
+- {static} long createLBPHFaceRecognizer_1(int)
+- {static} long createLBPHFaceRecognizer_2(int,int)
+- {static} long createLBPHFaceRecognizer_3(int,int,int,int,double)
+}
+class ControlledJavaCameraView {
++ List<String> getEffectList()
++ boolean isEffectSupported()
++ String getEffect()
++ void setEffect(String)
++ List<Size> getResolutionList()
++ void setResolution(Size)
++ Size getResolution()
+}
+class FisherFaceRecognizer {
+- {static} long createFisherFaceRecognizer_0()
+- {static} long createFisherFaceRecognizer_1(int)
+- {static} long createFisherFaceRecognizer_2(int,double)
+}
+
+
+Swipeable <|.. FaceRecognitionFragment
+OnOpenCVLoaded <|.. FaceRecognitionFragment
+CvCameraViewListener2 <|.. FaceRecognitionFragment
+OnSeekBarChangeListener <|.. FaceRecognitionFragment
+Fragment <|-- FaceRecognitionFragment
+FaceRecognitionFragment +.. FaceRecognitionFragment.LabelledRect
+FaceRecognizer <|-- EigenFaceRecognizer
+FaceRecognizer <|-- LBPHFaceRecognizer
+JavaCameraView <|-- ControlledJavaCameraView
+FaceRecognizer <|-- FisherFaceRecognizer
+@enduml

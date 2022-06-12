@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\alfre\Desktop\Riconoscimento-facciale\faceRecognizer\libs\android-support-v13.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f5fa2183e286730a81f3076f19022539902a24f3">
+        <dex dex="C:\Users\alfre\Desktop\Riconoscimento-facciale\faceRecognizer\build\intermediates\transforms\dex\debug\folders\1000\2\android-support-v13_cc75812f849ecc2d287d8992ddf04b362d3cd079\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\alfre\Desktop\Riconoscimento-facciale\faceRecognizer\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\alfre\Desktop\Riconoscimento-facciale\faceRecognizer\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_03d7971ecf63aaf1d57a7276981f230796fd72fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\alfre\Desktop\Riconoscimento-facciale\faceRecognizer\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="eaefe87c565fa25248b28ec9521dccbbf302e1f6">
+        <dex dex="C:\Users\alfre\Desktop\Riconoscimento-facciale\faceRecognizer\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b4aaff650a352ecfb4a0b239d7c1ff5e91e7ae0f\classes.dex" />
+    </item>
+
+</items>

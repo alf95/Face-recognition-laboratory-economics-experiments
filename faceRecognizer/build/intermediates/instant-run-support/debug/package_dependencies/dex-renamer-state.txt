@@ -1,0 +1,4 @@
+#Fri Jul 28 09:59:57 CEST 2017
+base.0=C\:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\android-support-v13_cc75812f849ecc2d287d8992ddf04b362d3cd079
+renamed.0=classes.dex
+file.0=C\:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\2\\android-support-v13_cc75812f849ecc2d287d8992ddf04b362d3cd079\\classes.dex

@@ -1,0 +1,7 @@
+#Thu Aug 31 19:05:13 CEST 2017
+base.0=C\:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_03d7971ecf63aaf1d57a7276981f230796fd72fc
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_b4aaff650a352ecfb4a0b239d7c1ff5e91e7ae0f\\classes.dex
+base.1=C\:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_b4aaff650a352ecfb4a0b239d7c1ff5e91e7ae0f
+file.0=C\:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_03d7971ecf63aaf1d57a7276981f230796fd72fc\\classes.dex

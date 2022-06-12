@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\raw\\haarcascade_frontalface_alt.xml",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\raw\\haarcascade_frontalface_alt.xml"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\raw\\haarcascade_frontalface_alt_tree.xml",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\raw\\haarcascade_frontalface_alt_tree.xml"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\raw\\haarcascade_frontalface_alt2.xml",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\raw\\haarcascade_frontalface_alt2.xml"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\raw\\haarcascade_frontalface_default.xml",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\raw\\haarcascade_frontalface_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\raw\\lbpcascade_frontalface.xml",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\raw\\lbpcascade_frontalface.xml"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\raw\\haarcascade_eye_tree_eyeglasses.xml",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\raw\\haarcascade_eye_tree_eyeglasses.xml"
+    }
+]

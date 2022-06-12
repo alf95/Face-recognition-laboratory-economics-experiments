@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_delete.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_delete.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_insert_person.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_insert_person.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_add_photo.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_add_photo.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_expand.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_expand.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_collapse.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_collapse.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_edit.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_edit.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_add.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_add.png"
+    },
+    {
+        "merged": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\action_alert.png",
+        "source": "C:\\Users\\alfre\\Desktop\\Riconoscimento-facciale\\faceRecognizer\\src\\main\\res\\drawable-xhdpi\\action_alert.png"
+    }
+]

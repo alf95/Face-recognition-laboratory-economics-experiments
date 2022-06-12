@@ -1,0 +1,611 @@
+@startuml
+class com.alfre.facesmanagement.EditPersonDialog {
+- String oldName
+- OnClickListener okOnClickListener
+- DialogInterface.OnClickListener dialogOnClickListener
++ Dialog onCreateDialog(Bundle)
++ String getInsertedName()
+}
+class com.alfre.facesmanagement.peopledb.PeopleDBOpenHelper {
+- {static} int VERSION
+~ Context mContext
+- {static} String DB_CREATE_PEOPLE
+- {static} String DB_CREATE_FACES
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ void clear(SQLiteDatabase)
+}
+class com.alfre.facerecognition.LBPHFaceRecognizer {
+- {static} long createLBPHFaceRecognizer_0()
+- {static} long createLBPHFaceRecognizer_1(int)
+- {static} long createLBPHFaceRecognizer_2(int,int)
+- {static} long createLBPHFaceRecognizer_3(int,int,int,int,double)
+}
+class com.alfre.facedetection.DetectionBasedTracker {
+- long mNativeObj
++ void start()
++ void stop()
++ void setMinFaceSize(int)
++ void detect(Mat,MatOfRect)
++ void release()
+- {static} long nativeCreateObject(String,int)
+- {static} void nativeDestroyObject(long)
+- {static} void nativeStart(long)
+- {static} void nativeStop(long)
+- {static} void nativeSetFaceSize(long,int)
+- {static} void nativeDetect(long,long,long)
+}
+class com.alfre.facerecognition.FisherFaceRecognizer {
+- {static} long createFisherFaceRecognizer_0()
+- {static} long createFisherFaceRecognizer_1(int)
+- {static} long createFisherFaceRecognizer_2(int,double)
+}
+class com.alfre.utilities.NoScrollGridView {
+# void onMeasure(int,int)
++ void setOnItemClickListener(OnItemClickListener)
+}
+interface com.alfre.utilities.Swipeable {
++ {abstract}void swipeOut(boolean)
++ {abstract}void swipeIn(boolean)
+}
+class com.alfre.facedetection.TakePhotoWithDetectionActivity {
+- {static} String TAG
+- {static} Scalar FACE_RECT_COLOR
+- ControlledJavaCameraView mCameraView
+- ImageButton mTakePhotoButton
+- Mat mGray
+- Mat mRgba
+- FaceDetector mFaceDetector
+- boolean mTakePhotoNow
+- Uri mOutputUri
+- ImageButton mSwitchButton
+- int mCurrentCameraIndex
+- ProgressDialog mProgressDialog
+# void onCreate(Bundle)
++ void onResume()
+- void setupFaceDetection()
++ void onPause()
++ void onCameraViewStarted(int,int)
++ void onCameraViewStopped()
++ Mat onCameraFrame(CvCameraViewFrame)
+- void drawBoundingBox(Mat,Rect)
+}
+class com.alfre.facesmanagement.peopledb.Person {
+- String name
+- SparseArray<Photo> photos
++ String getName()
++ void setName(String)
++ SparseArray<Photo> getPhotos()
++ void setPhotos(SparseArray<Photo>)
++ void addPhoto(int,Photo)
++ void removePhoto(int)
++ int compareTo(Person)
+}
+class com.alfre.utilities.PhotoAdapter {
+- Context mContext
+- List<Photo> photos
+- List<Boolean> selected
+- PhotoSelectionListener photoSelectionListener
+- int selectedColor
++ void replacePhotos(List<Photo>)
++ void addPhoto(Photo)
++ void setSelected(int,boolean)
+- boolean atLeastOneSelected()
++ void replacePhoto(int,Photo)
++ void removePhoto(int)
++ int getCount()
++ Photo getItem(int)
++ long getItemId(int)
++ View getView(int,View,ViewGroup)
++ void removeSelectedPhotos()
++ boolean isSelected(int)
+}
+interface com.alfre.utilities.PhotoAdapter.PhotoSelectionListener {
++ void photosSelectionChanged(boolean)
+}
+class com.alfre.facesmanagement.FacesManagementFragment {
+- {static} String TAG
+- {static} int FACE_DETECTION_AND_EXTRACTION
+- boolean retrainModel
+- FaceRecognizerMainActivity activity
+- ExpandableListView mPeopleList
+- PeopleAdapter mPeopleAdapter
+- TextView addPerson
+- View mainLayout
+- EIMFaceRecognizer mFaceRecognizer
+- Pair<Integer,String[]> photosToBeAdded
+- PeopleDatabase mPeopleDatabase
+~ OnClickListener addPersonListener
+~ PhotoGalleryListener mPhotoGalleryListener
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onActivityCreated(Bundle)
++ void onOpenCVLoaded()
+- void retrainRecognizer()
++ void swipeOut(boolean)
++ void swipeIn(boolean)
+- void setupFaceRecognizer()
++ void clearPeople()
++ void recognitionSettingsChanged()
++ void addPerson(String)
++ void editPersonName(int,String)
++ void removePerson(int)
++ void addPhotos(int,String[])
++ void removePhoto(int,int)
++ void removePhotos(int,List<Integer>)
++ void onActivityResult(int,int,Intent)
+}
+class com.alfre.utilities.SectionsPagerAdapter {
+- List<Fragment> sections
++ Fragment getItem(int)
++ int getCount()
++ CharSequence getPageTitle(int)
+}
+class com.alfre.utilities.SquareImageView {
+# void onMeasure(int,int)
+# void onSizeChanged(int,int,int,int)
++ void setSize(int)
+}
+class com.alfre.facerecognition.FaceRecognitionFragment {
+- {static} String TAG
+- {static} Scalar FACE_RECT_COLOR
+- {static} Scalar FACE_UNKNOWN_RECT_COLOR
+- {static} int mDistanceThreshold
+- FaceRecognizerMainActivity activity
+- ControlledJavaCameraView mCameraView
+- int mCurrentCameraIndex
+- Mat mRgba
+- Mat mSceneForRecognizer
+- LabelledRect[] mLabelsForDrawer
+- SparseArray<Mat> thumbnails
+- int mThumbnailSize
+- int mHeight
++ boolean mMultithread
+- FaceDetector mFaceDetector
+- EIMFaceRecognizer mFaceRecognizer
+- PeopleDatabase mPeopleDatabase
+- SeekBar mThresholdBar
+- TextView mThresholdTextView
+- ImageButton mSwitchButton
+- int mMaxThreshold
+- Thread mRecognitionThread
+- Runnable mRecognitionWorker
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onActivityCreated(Bundle)
++ void swipeIn(boolean)
++ void swipeOut(boolean)
++ void onResume()
++ void onPause()
++ void onOpenCVLoaded()
++ void onCameraViewStarted(int,int)
++ void onCameraViewStopped()
++ Mat onCameraFrame(CvCameraViewFrame)
+- LabelledRect[] recognizeFaces(Mat,Rect[])
+- void drawLabel(Mat,LabelledRect)
+- Mat getThumbnail(int)
+- void setupFaceRecognition()
++ void onProgressChanged(SeekBar,int,boolean)
++ void onStartTrackingTouch(SeekBar)
++ void onStopTrackingTouch(SeekBar)
+}
+enum com.alfre.facerecognition.Type {
++  LBPH
++  FISHER
++  EIGEN
+}
+class com.alfre.facerecognition.FaceRecognitionFragment.LabelledRect {
++ Rect rect
++ String text
++ Mat thumbnail
++ int confidence
+}
+class com.alfre.facesmanagement.PhotoGallery {
+- {static} int colCount
+- PhotoAdapter galleryAdapter
+- PhotoGalleryListener photoGalleryListener
+- int photoCount
+- Photo add
+- boolean addOrDelete
+~ OnItemClickListener galleryOnItemClickListener
+- void initView(Context)
++ void setPhotoGalleryListener(PhotoGalleryListener)
+- void showAddPhoto()
+- void showDeletePhoto()
++ void addPhoto(String)
++ void addPhoto(Photo)
++ void removePhoto(int)
+- void removePhoto()
++ void removeSelectedPhotos()
++ void removeAllPhotos()
++ void photosSelectionChanged(boolean)
+}
+interface com.alfre.facesmanagement.PhotoGallery.PhotoGalleryListener {
++ void addPhoto(PhotoGallery)
++ void removeSelectedPhotos(PhotoGallery)
+}
+class com.alfre.utilities.FaceRecognizerMainActivity {
+- {static} String TAG
+- ViewPager mViewPager
+- List<Fragment> sections
+- int currentPosition
+- SectionsPagerAdapter mSectionsPagerAdapter
+- FaceRecognitionFragment mFaceRecognitionFragment
+- FacesManagementFragment mFacesManagementFragment
+- MyPreferencesFragment mPreferencesFragment
+- FaceDetector mFaceDetector
+- EIMFaceRecognizer mFaceRecognizer
+- boolean isOpenCVLoaded
+- boolean isMultithreadingEnabled
+~ OnPageChangeListener mOnPageChangeListener
+# void onCreate(Bundle)
++ void onResume()
++ void onBackPressed()
+- void askForExit()
++ FacesManagementFragment getFacesManagementFragment()
++ boolean isOpenCVLoaded()
+- void setupFaceRecognizer()
++ EIMFaceRecognizer getFaceRecognizer()
++ EIMFaceRecognizer recreateFaceRecognizer()
++ FaceDetector getFaceDetector()
++ FaceDetector recreateFaceDetector()
+- void setupFaceDetector()
++ void setMultithreading(boolean)
+}
+interface com.alfre.utilities.FaceRecognizerMainActivity.OnOpenCVLoaded {
++ void onOpenCVLoaded()
+}
+class com.alfre.facesmanagement.peopledb.Photo {
+- String url
+- Bitmap mBitmap
++ String getUrl()
++ void setUrl(String)
++ Bitmap getBitmap()
++ void setBitmap(Bitmap)
+}
+class com.alfre.facedetection.FaceDetectionActivity {
+- {static} String TAG
+# {static} int REQUEST_TAKE_PHOTO
+# {static} int REQUEST_PICK_PHOTO
+# {static} int REQUEST_TAKE_PHOTO_DETECTION
++ {static} String PERSON_ID
++ {static} String PERSON_NAME
++ {static} String PHOTO_PATHS
+- FaceDetector mFaceDetector
+- File mSceneFile
+- int personId
+- String mLabelName
+- boolean isPhotoReady
+- boolean mChooserVisible
+- List<String> mFacesResults
+- ProgressDialog mProgressDialog
+# void onCreate(Bundle)
++ void onResume()
+- void showChooserDialog()
+- void showChooserDialog(boolean)
++ void onActivityResult(int,int,Intent)
+- void detectAndProcessFacesWithLoading()
+- void detectAndProcessFaces()
+- void setupFaceDetection()
++ void onBackPressed()
+- void processFace(Bitmap)
+- void finishWithResults()
+- void displayFaceChooser(Bitmap[])
+- void processFacesWithLoading(Bitmap[],int)
+- void copyPickedPhoto(Intent)
+- Bitmap[] detectFaces()
+}
+interface com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener {
+}
+class com.alfre.facerecognition.ControlledJavaCameraView {
++ List<String> getEffectList()
++ boolean isEffectSupported()
++ String getEffect()
++ void setEffect(String)
++ List<Size> getResolutionList()
++ void setResolution(Size)
++ Size getResolution()
+}
+class com.alfre.facesmanagement.PeopleAdapter {
+- {static} String TAG
+- Activity context
+- SparseArray<Person> people
+- int groupResource
+- PeopleAdapterListener peopleAdapterListener
+- PhotoGalleryListener photoGalleryListener
+- OnClickListener editPersonOnClickListener
++ View getGroupView(int,boolean,View,ViewGroup)
++ View getChildView(int,int,boolean,View,ViewGroup)
++ int getGroupCount()
++ int getChildrenCount(int)
++ Object getGroup(int)
++ Object getChild(int,int)
++ boolean hasStableIds()
++ boolean isChildSelectable(int,int)
++ long getGroupId(int)
++ long getChildId(int,int)
++ SparseArray<Person> getPeople()
++ Person getPersonById(int)
++ void addPerson(int,Person)
++ boolean removePerson(int)
++ void setPeople(SparseArray<Person>)
++ boolean editPersonName(int,String)
++ boolean removePhoto(int,int)
++ boolean addPhoto(int,int,Photo)
+}
+interface com.alfre.facesmanagement.PeopleAdapter.PeopleAdapterListener {
++ void editPersonName(int,String)
++ void removePerson(int)
+}
+class com.alfre.facesmanagement.peopledb.FacesContract {
++ {static} String DB_NAME
+}
+abstract class com.alfre.facesmanagement.peopledb.FacesContract.People {
++ {static} String TABLE
++ {static} String NAME
+}
+abstract class com.alfre.facesmanagement.peopledb.FacesContract.Faces {
++ {static} String TABLE
++ {static} String PERSON_ID
++ {static} String PHOTO_URL
++ {static} String FEATURES
+}
+class com.alfre.facesmanagement.peopledb.PeopleDatabase {
+- {static} PeopleDatabase instance
+- {static} PeopleDBOpenHelper pdboh
+- {static} SQLiteDatabase db
+- {static} SparseArray<Person> people
++ {static} PeopleDatabase getInstance(Context)
++ void editPersonName(int,String)
++ void removePerson(int)
++ int addPerson(String)
++ int addPhoto(int,String)
++ void removePhoto(int,int)
++ Person getPerson(int)
++ SparseArray<Person> getPeople()
+- {static} SparseArray<Person> _getPeople()
++ void clear()
+}
+class com.alfre.utilities.EIMPreferences {
+- {static} EIMPreferences instance
+- SharedPreferences mSharedPreferences
+- String detectionScaleFactorKey
+- String detectionScaleFactorDefault
+- String detectionMinNeighborsKey
+- String detectionMinNeighborsDefault
+- String detectionMinRelativeFaceSizeKey
+- String detectionMinRelativeFaceSizeDefault
+- String detectionMaxRelativeFaceSizeKey
+- String detectionMaxRelativeFaceSizeDefault
+- String numberOfGalleryColumnsLandscapeKey
+- String numberOfGalleryColumnsLandscapeDefault
+- String numberOfGalleryColumnsPortraitKey
+- String numberOfGalleryColumnsPortraitDefault
+- String detectorTypeKey
+- String detectorTypeDefault
+- String detectorClassifierKey
+- String detectorClassifierDefault
+- String recognitionTypeKey
+- String recognitionTypeDefault
+- String recognitionNormalizationKey
+- boolean recognitionNormalizationDefault
+- String recognitionCutModeKey
+- String recognitionCutModeDefault
+- String recognitionCutModePercentageKey
+- String recognitionCutModePercentageDefault
+- String recognitionThresholdKey
+- String recognitionThresholdDefault
+- String recognitionFaceSizeKey
+- String recognitionFaceSizeDefault
+- String LBPHRadiusKey
+- String LBPHRadiusDefault
+- String LBPHNeighboursKey
+- String LBPHNeighboursDefault
+- String LBPHGridXKey
+- String LBPHGridXDefault
+- String LBPHGridYKey
+- String LBPHGridYDefault
+- String EigenComponentsKey
+- String EigenComponentsDefault
+- String FisherComponentsKey
+- String FisherComponentsDefault
+- String multithreadingKey
+- boolean multithreadingDefault
++ {static} EIMPreferences getInstance(Context)
++ double detectionScaleFactor()
++ int detectionMinNeighbors()
++ double detectionMinRelativeFaceSize()
++ double detectionMaxRelativeFaceSize()
++ int numberOfGalleryColumnsLandscape()
++ int numberOfGalleryColumnsPortrait()
++ FaceDetector.Type detectorType()
++ FaceDetector.Classifier detectorClassifier()
++ EIMFaceRecognizer.Type recognitionType()
++ boolean recognitionNormalization()
++ EIMFaceRecognizer.CutMode recognitionCutMode()
++ int recognitionCutModePercentage()
++ int recognitionThreshold()
++ int recognitionFaceSize()
++ int LBPHRadius()
++ int LBPHNeighbours()
++ int LBPHGridX()
++ int LBPHGridY()
++ int EigenComponents()
++ int FisherComponents()
++ boolean multithreading()
+- void getKeysAndDefaultValues(Context)
+}
+class com.alfre.facerecognition.EigenFaceRecognizer {
+- {static} long createEigenFaceRecognizer_0()
+- {static} long createEigenFaceRecognizer_1(int)
+- {static} long createEigenFaceRecognizer_2(int,double)
+}
+class com.alfre.utilities.MyPreferencesFragment {
+- FaceRecognizerMainActivity activity
+- PreferenceScreen mPreferenceScreen
+- boolean restoring
+- String oldValue
+- String recognitionThresholdKey
+~ OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener
+~ OnPreferenceClickListener mOnPreferenceClickListener
++ void onCreate(Bundle)
++ void onActivityCreated(Bundle)
++ void onResume()
++ void onPause()
++ void swipeIn(boolean)
++ void swipeOut(boolean)
+- void initPreferences()
+# void initPreference(Preference)
+# void setPreferenceSummary(Preference)
+- void restorePreferences()
+- void setPreference(int,int)
+}
+enum com.alfre.utilities.Validity {
++  VALID
++  NOT_VALID_RECOGNITION_THRESHOLD
++  NOT_VALID_CUTMODE_PERCENTAGE
++  NOT_VALID_LBPH_RADIUS
++  NOT_VALID_LBPH_NEIGHBOURS
++  NOT_VALID_LBPH_GRID
++  NOT_VALID_EIGEN_COMPONENTS
++  NOT_VALID_FISHER_COMPONENTS
++  NOT_VALID_DETECTION_SCALE_FACTOR
++  NOT_VALID_DETECTION_MIN_NEIGHBORS
++  NOT_VALID_DETECTION_MIN_RELATIVE_FACE_SIZE
++  NOT_VALID_DETECTION_MAX_RELATIVE_FACE_SIZE
++  NOT_VALID_DETECTION_RELATIVE_FACE_SIZE_RATIO
++  NOT_VALID_NUMBER_OF_GALLERY_COLUMNS_PORTRAIT
++  NOT_VALID_NUMBER_OF_GALLERY_COLUMNS_LANDSCAPE
+}
+class com.alfre.facerecognition.EIMFaceRecognizer {
+- {static} String MODEL_FILE_NAME
+- boolean isTrained
+- String mModelPath
+- Context mContext
+- Type mRecognizerType
+- FaceRecognizer mFaceRecognizer
+- Size faceSize
+- boolean normalize
+- CutMode mCutMode
+- double mCutPercentage
+- Rect cutRect
+- int lbphRadius
+- int eigenComponents
+- int fisherComponents
+- void computeCutRect()
+- void instantiateFaceRecognizer(Integer)
++ void resetModel()
++ {static} void deleteModelFromDisk(Context)
++ void incrementalTrain(String,int)
++ void incrementalTrain(String[],int)
++ void incrementalTrainWithLoading(Activity,String,int)
++ void incrementalTrainWithLoading(Activity,String[],int)
++ boolean train(SparseArray<Person>)
++ void trainWithLoading(Activity,SparseArray<Person>)
+- boolean isDatasetValid(SparseArray<Person>)
++ void predict(Mat,int[],double[])
+- void preprocessImage(Mat)
++ Type getType()
+}
+enum com.alfre.facerecognition.Type {
++  LBPH
++  EIGEN
++  FISHER
++ boolean isIncrementable()
++ boolean needResize()
++ int numberOfNeededClasses()
+}
+enum com.alfre.facerecognition.CutMode {
++  NO_CUT
++  EYES
++  HORIZONTAL
++  VERTICAL
++  TOTAL
+}
+class com.alfre.facerecognition.EyeCropper {
+- {static} String TAG
+- {static} String eyesCascadeXML
+- {static} double EYE_MIN_SIZE_PERCENTAGE
+- {static} double EYE_MAX_SIZE_PERCENTAGE
+- double SCALE_FACTOR
+- int MIN_NEIGHBOURS
+- int FLAGS
+- Context mContext
+- File mCascadeFile
+- CascadeClassifier eyesCascade
+- Rect leftEye
+- double offset
+- void loadCascadeFile()
++ Mat cropEyes(Mat)
+- boolean detectEye(Mat)
+- Mat cropFaceToEyes(Mat)
+}
+class com.alfre.facedetection.FaceDetector {
+- Context mContext
+- File mCascadeFile
+- CascadeClassifier mJavaDetector
+- DetectionBasedTracker mNativeDetector
+- Type mDetectorType
+- Classifier mClassifier
+- double mScaleFactor
+- int mMinNeighbors
+- Size mMinAbsoluteFaceSize
+- double mMinRelativeFaceSize
+- Size mMaxAbsoluteFaceSize
+- double mMaxRelativeFaceSize
+- void loadCascadeFile()
++ Rect[] detect(Mat)
+}
+enum com.alfre.facedetection.Type {
++  JAVA
++  NATIVE
+}
+enum com.alfre.facedetection.Classifier {
++  LBPCASCADE_FRONTALFACE
++  HAARCASCADE_FRONTALFACE_DEFAULT
++  HAARCASCADE_FRONTALFACE_ALT
++  HAARCASCADE_FRONTALFACE_ALT2
++  HAARCASCADE_FRONTALFACE_ALT_TREE
+}
+
+
+android.app.DialogFragment <|-- com.alfre.facesmanagement.EditPersonDialog
+android.database.sqlite.SQLiteOpenHelper <|-- com.alfre.facesmanagement.peopledb.PeopleDBOpenHelper
+org.opencv.contrib.FaceRecognizer <|-- com.alfre.facerecognition.LBPHFaceRecognizer
+org.opencv.contrib.FaceRecognizer <|-- com.alfre.facerecognition.FisherFaceRecognizer
+android.widget.GridView <|-- com.alfre.utilities.NoScrollGridView
+org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2 <|.. com.alfre.facedetection.TakePhotoWithDetectionActivity
+android.app.Activity <|-- com.alfre.facedetection.TakePhotoWithDetectionActivity
+com.alfre.facesmanagement.peopledb.Comparable <|.. com.alfre.facesmanagement.peopledb.Person
+android.widget.BaseAdapter <|-- com.alfre.utilities.PhotoAdapter
+com.alfre.utilities.PhotoAdapter +.. com.alfre.utilities.PhotoAdapter.PhotoSelectionListener
+com.alfre.utilities.Swipeable <|.. com.alfre.facesmanagement.FacesManagementFragment
+com.alfre.utilities.FaceRecognizerMainActivity.OnOpenCVLoaded <|.. com.alfre.facesmanagement.FacesManagementFragment
+com.alfre.facesmanagement.PeopleAdapter.PeopleAdapterListener <|.. com.alfre.facesmanagement.FacesManagementFragment
+android.app.Fragment <|-- com.alfre.facesmanagement.FacesManagementFragment
+android.support.v13.app.FragmentPagerAdapter <|-- com.alfre.utilities.SectionsPagerAdapter
+android.widget.ImageView <|-- com.alfre.utilities.SquareImageView
+com.alfre.utilities.Swipeable <|.. com.alfre.facerecognition.FaceRecognitionFragment
+com.alfre.utilities.FaceRecognizerMainActivity.OnOpenCVLoaded <|.. com.alfre.facerecognition.FaceRecognitionFragment
+org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2 <|.. com.alfre.facerecognition.FaceRecognitionFragment
+com.alfre.facerecognition.OnSeekBarChangeListener <|.. com.alfre.facerecognition.FaceRecognitionFragment
+android.app.Fragment <|-- com.alfre.facerecognition.FaceRecognitionFragment
+com.alfre.facerecognition.FaceRecognitionFragment +.. com.alfre.facerecognition.FaceRecognitionFragment.LabelledRect
+com.alfre.utilities.PhotoAdapter.PhotoSelectionListener <|.. com.alfre.facesmanagement.PhotoGallery
+com.alfre.utilities.NoScrollGridView <|-- com.alfre.facesmanagement.PhotoGallery
+com.alfre.facesmanagement.PhotoGallery +.. com.alfre.facesmanagement.PhotoGallery.PhotoGalleryListener
+android.app.Activity <|-- com.alfre.utilities.FaceRecognizerMainActivity
+com.alfre.utilities.FaceRecognizerMainActivity +.. com.alfre.utilities.FaceRecognizerMainActivity.OnOpenCVLoaded
+android.app.Activity <|-- com.alfre.facedetection.FaceDetectionActivity
+com.alfre.facedetection.FaceDetectionActivity +.. com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener
+com.alfre.facedetection.OnCancelListener <|-- com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener
+com.alfre.facedetection.OnDismissListener <|-- com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener
+org.opencv.android.JavaCameraView <|-- com.alfre.facerecognition.ControlledJavaCameraView
+android.widget.BaseExpandableListAdapter <|-- com.alfre.facesmanagement.PeopleAdapter
+com.alfre.facesmanagement.PeopleAdapter +.. com.alfre.facesmanagement.PeopleAdapter.PeopleAdapterListener
+com.alfre.facesmanagement.peopledb.FacesContract +.. com.alfre.facesmanagement.peopledb.FacesContract.People
+com.alfre.facesmanagement.peopledb.BaseColumns <|.. com.alfre.facesmanagement.peopledb.FacesContract.People
+com.alfre.facesmanagement.peopledb.FacesContract +.. com.alfre.facesmanagement.peopledb.FacesContract.Faces
+com.alfre.facesmanagement.peopledb.BaseColumns <|.. com.alfre.facesmanagement.peopledb.FacesContract.Faces
+org.opencv.contrib.FaceRecognizer <|-- com.alfre.facerecognition.EigenFaceRecognizer
+com.alfre.utilities.Swipeable <|.. com.alfre.utilities.MyPreferencesFragment
+android.preference.PreferenceFragment <|-- com.alfre.utilities.MyPreferencesFragment
+@enduml

@@ -1,0 +1,107 @@
+@startuml
+class com.alfre.facedetection.TakePhotoWithDetectionActivity {
+- {static} String TAG
+- {static} Scalar FACE_RECT_COLOR
+- ControlledJavaCameraView mCameraView
+- ImageButton mTakePhotoButton
+- Mat mGray
+- Mat mRgba
+- FaceDetector mFaceDetector
+- boolean mTakePhotoNow
+- Uri mOutputUri
+- ImageButton mSwitchButton
+- int mCurrentCameraIndex
+- ProgressDialog mProgressDialog
+# void onCreate(Bundle)
++ void onResume()
+- void setupFaceDetection()
++ void onPause()
++ void onCameraViewStarted(int,int)
++ void onCameraViewStopped()
++ Mat onCameraFrame(CvCameraViewFrame)
+- void drawBoundingBox(Mat,Rect)
+}
+class com.alfre.facedetection.FaceDetectionActivity {
+- {static} String TAG
+# {static} int REQUEST_TAKE_PHOTO
+# {static} int REQUEST_PICK_PHOTO
+# {static} int REQUEST_TAKE_PHOTO_DETECTION
++ {static} String PERSON_ID
++ {static} String PERSON_NAME
++ {static} String PHOTO_PATHS
+- FaceDetector mFaceDetector
+- File mSceneFile
+- int personId
+- String mLabelName
+- boolean isPhotoReady
+- boolean mChooserVisible
+- List<String> mFacesResults
+- ProgressDialog mProgressDialog
+# void onCreate(Bundle)
++ void onResume()
+- void showChooserDialog()
+- void showChooserDialog(boolean)
++ void onActivityResult(int,int,Intent)
+- void detectAndProcessFacesWithLoading()
+- void detectAndProcessFaces()
+- void setupFaceDetection()
++ void onBackPressed()
+- void processFace(Bitmap)
+- void finishWithResults()
+- void displayFaceChooser(Bitmap[])
+- void processFacesWithLoading(Bitmap[],int)
+- void copyPickedPhoto(Intent)
+- Bitmap[] detectFaces()
+}
+interface com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener {
+}
+class com.alfre.facedetection.DetectionBasedTracker {
+- long mNativeObj
++ void start()
++ void stop()
++ void setMinFaceSize(int)
++ void detect(Mat,MatOfRect)
++ void release()
+- {static} long nativeCreateObject(String,int)
+- {static} void nativeDestroyObject(long)
+- {static} void nativeStart(long)
+- {static} void nativeStop(long)
+- {static} void nativeSetFaceSize(long,int)
+- {static} void nativeDetect(long,long,long)
+}
+class com.alfre.facedetection.FaceDetector {
+- Context mContext
+- File mCascadeFile
+- CascadeClassifier mJavaDetector
+- DetectionBasedTracker mNativeDetector
+- Type mDetectorType
+- Classifier mClassifier
+- double mScaleFactor
+- int mMinNeighbors
+- Size mMinAbsoluteFaceSize
+- double mMinRelativeFaceSize
+- Size mMaxAbsoluteFaceSize
+- double mMaxRelativeFaceSize
+- void loadCascadeFile()
++ Rect[] detect(Mat)
+}
+enum com.alfre.facedetection.Type {
++  JAVA
++  NATIVE
+}
+enum com.alfre.facedetection.Classifier {
++  LBPCASCADE_FRONTALFACE
++  HAARCASCADE_FRONTALFACE_DEFAULT
++  HAARCASCADE_FRONTALFACE_ALT
++  HAARCASCADE_FRONTALFACE_ALT2
++  HAARCASCADE_FRONTALFACE_ALT_TREE
+}
+
+
+org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2 <|.. com.alfre.facedetection.TakePhotoWithDetectionActivity
+android.app.Activity <|-- com.alfre.facedetection.TakePhotoWithDetectionActivity
+android.app.Activity <|-- com.alfre.facedetection.FaceDetectionActivity
+com.alfre.facedetection.FaceDetectionActivity +.. com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener
+com.alfre.facedetection.OnCancelListener <|-- com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener
+com.alfre.facedetection.OnDismissListener <|-- com.alfre.facedetection.FaceDetectionActivity.GenericCancelListener
+@enduml

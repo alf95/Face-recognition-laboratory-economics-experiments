@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/preference_recognition_title" android:key="@string/preference_recognition" >
+        <ListPreference
+            android:defaultValue="@string/recognition_recognizer_type_default"
+            android:entries="@array/recognition_recognizer_type_entries"
+            android:entryValues="@array/recognition_recognizer_type_values"
+            android:key="@string/recognition_recognizer_type"
+            android:title="@string/recognition_recognizer_type_title" />
+
+        <EditTextPreference
+            android:defaultValue="@string/recognition_threshold_default"
+            android:inputType="number"
+            android:key="@string/recognition_threshold"
+            android:title="@string/recognition_threshold_title" />
+        <EditTextPreference
+            android:defaultValue="@string/recognition_face_size_default"
+            android:inputType="number"
+            android:key="@string/recognition_face_size"
+            android:title="@string/recognition_face_size_title" />
+      <!--  <CheckBoxPreference
+            android:defaultValue="@string/recognition_normalization_default"
+            android:key="@string/recognition_normalization"
+            android:title="@string/recognition_normalization_title"
+            android:visibility="gone" />
+        
+        <ListPreference
+            android:defaultValue="@string/recognition_cutmode_default"
+            android:entries="@array/recognition_cutmode_entries"
+            android:entryValues="@array/recognition_cutmode_values"
+            android:key="@string/recognition_cutmode"
+            android:title="@string/recognition_cutmode_title" />
+
+        <EditTextPreference
+            android:defaultValue="@string/recognition_cutmode_percentage_default"
+            android:inputType="number"
+            android:key="@string/recognition_cutmode_percentage"
+            android:title="@string/recognition_cutmode_percentage_title"
+            android:visibility="gone" />
+        <EditTextPreference
+            android:defaultValue="@string/recognition_lbph_radius_default"
+            android:inputType="number"
+            android:key="@string/recognition_lbph_radius"
+            android:title="@string/recognition_lbph_radius_title"
+            android:visibility="gone" /> -->
+        <EditTextPreference
+            android:defaultValue="@string/recognition_lbph_neighbors_default"
+            android:inputType="number"
+            android:key="@string/recognition_lbph_neighbors"
+            android:title="@string/recognition_lbph_neighbors_title" />
+        <!--<EditTextPreference
+            android:defaultValue="@string/recognition_lbph_grid_x_default"
+            android:inputType="number"
+            android:key="@string/recognition_lbph_grid_x"
+            android:title="@string/recognition_lbph_grid_x_title"
+            android:visibility="gone"/>
+        <EditTextPreference
+            android:defaultValue="@string/recognition_lbph_grid_y_default"
+            android:inputType="number"
+            android:key="@string/recognition_lbph_grid_y"
+            android:title="@string/recognition_lbph_grid_y_title"
+            android:visibility="gone"/> -->
+        <!-- <EditTextPreference
+            android:defaultValue="@string/recognition_eigen_components_default"
+            android:inputType="number"
+            android:key="@string/recognition_eigen_components"
+            android:title="@string/recognition_eigen_components_title" />
+        <EditTextPreference
+            android:defaultValue="@string/recognition_fisher_components_default"
+            android:inputType="number"
+            android:key="@string/recognition_fisher_components"
+            android:title="@string/recognition_fisher_components_title" /> -->
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preference_detection_title" android:key="@string/preference_detection" >
+        <ListPreference
+            android:defaultValue="@string/detection_detector_type_default"
+            android:entries="@array/detection_detector_type_entries"
+            android:entryValues="@array/detection_detector_type_values"
+            android:key="@string/detection_detector_type"
+            android:title="@string/detection_detector_type_title" />
+        <ListPreference
+            android:defaultValue="@string/detection_face_classifier_default"
+            android:entries="@array/detection_face_classifier_entries"
+            android:entryValues="@array/detection_face_classifier_entry_values"
+            android:key="@string/detection_face_classifier"
+            android:title="@string/detection_face_classifier_title" />
+
+    <!--    <EditTextPreference
+            android:defaultValue="@string/detection_scale_factor_default"
+            android:inputType="numberDecimal"
+            android:key="@string/detection_scale_factor"
+            android:title="@string/detection_scale_factor_title" />
+        <EditTextPreference
+            android:defaultValue="@string/detection_min_neighbors_default"
+            android:inputType="number"
+            android:key="@string/detection_min_neighbors"
+            android:title="@string/detection_min_neighbors_title" />
+        <EditTextPreference
+            android:defaultValue="@string/detection_min_relative_face_size_default"
+            android:inputType="numberDecimal"
+            android:key="@string/detection_min_relative_face_size"
+            android:title="@string/detection_min_relative_face_size_title" />
+        <EditTextPreference
+            android:defaultValue="@string/detection_max_relative_face_size_default"
+            android:inputType="numberDecimal"
+            android:key="@string/detection_max_relative_face_size"
+            android:title="@string/detection_max_relative_face_size_title" /> -->
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preference_general_title" android:key="@string/preference_general" >
+    <!--    <CheckBoxPreference
+            android:visibility="gone"
+            android:defaultValue="@string/general_multithreading_default"
+            android:key="@string/general_multithreading"
+            android:title="@string/general_multithreading_title" />
+        <EditTextPreference
+            android:visibility="gone"
+            android:defaultValue="@string/management_number_of_gallery_columns_landscape_default"
+            android:inputType="number"
+            android:key="@string/management_number_of_gallery_columns_landscape"
+            android:title="@string/management_number_of_gallery_columns_landscape_title" />
+        <EditTextPreference
+            android:visibility="gone"
+            android:defaultValue="@string/management_number_of_gallery_columns_portrait_default"
+            android:inputType="number"
+            android:key="@string/management_number_of_gallery_columns_portrait"
+            android:title="@string/management_number_of_gallery_columns_portrait_title" /> -->
+
+        <Preference
+            android:key="@string/general_clear_database"
+            android:title="@string/general_clear_database_title" />
+        <Preference
+
+            android:key="@string/general_restore_default_preferences"
+            android:title="@string/general_restore_default_preferences_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

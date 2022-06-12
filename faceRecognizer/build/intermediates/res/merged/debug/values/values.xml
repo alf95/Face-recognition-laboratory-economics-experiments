@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="detection_detector_type_entries">
+        <item>Java</item>
+        <item>Native</item>
+    </string-array>
+    <string-array name="detection_detector_type_values">
+        <item>JAVA</item>
+        <item>NATIVE</item>
+    </string-array>
+    <string-array name="detection_face_classifier_entries">
+        <item> lbpcascade_frontalface </item>
+        <item> haarcascade_frontalface_default </item>
+        <item> haarcascade_frontalface_alt </item>
+        <item> haarcascade_frontalface_alt2 </item>
+        <item> haarcascade_frontalface_alt_tree </item>
+    </string-array>
+    <string-array name="detection_face_classifier_entry_values">
+        <item> LBPCASCADE_FRONTALFACE </item>
+        <item> HAARCASCADE_FRONTALFACE_DEFAULT </item>
+        <item> HAARCASCADE_FRONTALFACE_ALT </item>
+        <item> HAARCASCADE_FRONTALFACE_ALT2 </item>
+        <item> HAARCASCADE_FRONTALFACE_ALT_TREE </item>
+    </string-array>
+    <string-array name="face_detection_add_photo_options">
+        <item>Take from camera</item>
+        <item>Pick from gallery</item>
+        <item>Take from camera (with detection)</item>
+    </string-array>
+    <string-array name="recognition_cutmode_entries">
+        <item>No Cut</item>
+        
+        <item>Horizontal Cut</item>
+        <item>Vertical Cut</item>
+        <item>Total Cut</item>
+    </string-array>
+    <string-array name="recognition_cutmode_values">
+        <item>NO_CUT</item>
+        
+        <item>HORIZONTAL</item>
+        <item>VERTICAL</item>
+        <item>TOTAL</item>
+    </string-array>
+    <string-array name="recognition_recognizer_type_entries">
+        <item>Local Binary Pattern Histogram</item>
+        <item>Eigen Faces</item>
+        <item>Fisher Faces</item>
+    </string-array>
+    <string-array name="recognition_recognizer_type_values">
+        <item>LBPH</item>
+        <item>EIGEN</item>
+        <item>FISHER</item>
+    </string-array>
+    <declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id">
+          <enum name="any" value="-1"/>
+          <enum name="back" value="99"/>
+          <enum name="front" value="98"/>
+       </attr></declare-styleable>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="gallery_height">140dp</dimen>
+    <dimen name="gallery_padding">5dp</dimen>
+    <string name="add_person">Add person</string>
+    <string name="alert_dialog_cancel">Cancel</string>
+    <string name="alert_dialog_delete">Delete</string>
+    <string name="alert_dialog_delete_person_text">Are you sure you want to delete %s?</string>
+    <string name="alert_dialog_delete_person_title">Confirm deletion</string>
+    <string name="alert_dialog_exit_text">Are you sure you want to exit?</string>
+    <string name="alert_dialog_exit_title">Confirm exit</string>
+    <string name="alert_dialog_insert_person">Insert person name</string>
+    <string name="alert_dialog_no">No</string>
+    <string name="alert_dialog_ok">Ok</string>
+    <string name="alert_dialog_person_name_label">Name:</string>
+    <string name="alert_dialog_yes">Yes</string>
+    <string name="app_name">Riconoscimento Facciale RT</string>
+    <string name="detection_detector_type">detector_type</string>
+    <string name="detection_detector_type_default">NATIVE</string>
+    <string name="detection_detector_type_title">Detector type</string>
+    <string name="detection_face_classifier">detection_face_classifier</string>
+    <string name="detection_face_classifier_default">LBPCASCADE_FRONTALFACE</string>
+    <string name="detection_face_classifier_title">Face classifier</string>
+    <string name="detection_invalid_max_relative_face_size">Maximum relative face must be in the range [0,1]</string>
+    <string name="detection_invalid_min_neighbors">Minimum number of neighbors must be positive</string>
+    <string name="detection_invalid_min_relative_face_size">Minimum relative face must be in the range [0,1]</string>
+    <string name="detection_invalid_relative_face_size_ratio">Maximum relative face must be greater than the minimum one</string>
+    <string name="detection_invalid_scale_factor">Scale factor must be greater than one</string>
+    <string name="detection_max_relative_face_size">detection_max_relative_face_size</string>
+    <string name="detection_max_relative_face_size_default">1</string>
+    <string name="detection_max_relative_face_size_title">Maximum Relative Face Size</string>
+    <string name="detection_min_neighbors">detection_min_neighbors</string>
+    <string name="detection_min_neighbors_default">3</string>
+    <string name="detection_min_neighbors_title">Min Neighbors</string>
+    <string name="detection_min_relative_face_size">detection_min_relative_face_size</string>
+    <string name="detection_min_relative_face_size_default">0.25</string>
+    <string name="detection_min_relative_face_size_title">Minimum Relative Face Size</string>
+    <string name="detection_scale_factor">detection_scale_factor</string>
+    <string name="detection_scale_factor_default">1.1</string>
+    <string name="detection_scale_factor_title">Scale Factor</string>
+    <string name="error_person_already_present">The name you inserted is already present</string>
+    <string name="error_person_name_not_valid">The name cannot be empty</string>
+    <string name="face_detection_add_photo_title">Add photo</string>
+    <string name="face_detection_choose_all">Recognize all!</string>
+    <string name="face_detection_choose_face">Choose the face you want to recognize</string>
+    <string name="face_detection_retry_add_photo_title">No face found. Try again!</string>
+    <string name="general_clear_database">general_clear_data</string>
+    <string name="general_clear_database_confirmation">All people have been removed from database</string>
+    <string name="general_clear_database_title">Clear database</string>
+    <string name="general_multithreading">general_multithreading</string>
+    <string name="general_multithreading_default">false</string>
+    <string name="general_multithreading_title">Enable multithreading (experimental)</string>
+    <string name="general_restore_default_preferences">restore_default_preferences</string>
+    <string name="general_restore_default_preferences_confirmation">Preferences restored</string>
+    <string name="general_restore_default_preferences_title">Restore default preferences</string>
+    <string name="invalid_number_of_gallery_columns">The number of gallery columns must be positive</string>
+    <string name="management_number_of_gallery_columns_landscape">management_number_of_gallery_columns_landscape</string>
+    <string name="management_number_of_gallery_columns_landscape_default">5</string>
+    <string name="management_number_of_gallery_columns_landscape_title">Number of gallery columns landscape</string>
+    <string name="management_number_of_gallery_columns_portrait">management_number_of_gallery_columns_portrait</string>
+    <string name="management_number_of_gallery_columns_portrait_default">3</string>
+    <string name="management_number_of_gallery_columns_portrait_title">Number of gallery columns portrait</string>
+    <string name="no_people">There are no people in the database</string>
+    <string name="preference_detection">preference_detection</string>
+    <string name="preference_detection_title">Detection</string>
+    <string name="preference_general">preference_general</string>
+    <string name="preference_general_title">General</string>
+    <string name="preference_recognition">preference_recognition</string>
+    <string name="preference_recognition_title">Recognition</string>
+    <string name="progress_dialog_grabbing_face">Grabbing faces…</string>
+    <string name="progress_dialog_saving_face">Saving faces…</string>
+    <string name="recognition_cutmode">recognition_cutmode</string>
+    <string name="recognition_cutmode_default">NO_CUT</string>
+    <string name="recognition_cutmode_percentage">recognition_cutmode_percentage</string>
+    <string name="recognition_cutmode_percentage_default">10</string>
+    <string name="recognition_cutmode_percentage_title">Cut percentage</string>
+    <string name="recognition_cutmode_title">Cut image</string>
+    <string name="recognition_eigen_components">recognition_eigen_components</string>
+    <string name="recognition_eigen_components_default">0</string>
+    <string name="recognition_eigen_components_title">Eigen components (0 for all)</string>
+    <string name="recognition_face_size">recognition_face_size</string>
+    <string name="recognition_face_size_default">150</string>
+    <string name="recognition_face_size_title">Face size (0 for no resize)</string>
+    <string name="recognition_fisher_components">recognition_fisher_components</string>
+    <string name="recognition_fisher_components_default">0</string>
+    <string name="recognition_fisher_components_title">Fisher components (0 for all)</string>
+    <string name="recognition_invalid_cutmode_percentage">The cut percentage must be in the range [0,25]</string>
+    <string name="recognition_invalid_threshold">The threshold must be in the range [0,500]</string>
+    <string name="recognition_lbph_grid_x">recognition_lbph_grid_x</string>
+    <string name="recognition_lbph_grid_x_default">8</string>
+    <string name="recognition_lbph_grid_x_title">LBPH grid columns</string>
+    <string name="recognition_lbph_grid_y">recognition_lbph_grid_y</string>
+    <string name="recognition_lbph_grid_y_default">8</string>
+    <string name="recognition_lbph_grid_y_title">LBPH grid rows</string>
+    <string name="recognition_lbph_invalid_grid">The grid sizes must be greater than zero</string>
+    <string name="recognition_lbph_invalid_neighbours">The neighbours number must be greater than zero</string>
+    <string name="recognition_lbph_invalid_radius">The radius must be greater than zero</string>
+    <string name="recognition_lbph_neighbors">recognition_lbph_neighbours</string>
+    <string name="recognition_lbph_neighbors_default">8</string>
+    <string name="recognition_lbph_neighbors_title">LBPH neighbours</string>
+    <string name="recognition_lbph_radius">recognition_lbph_radius</string>
+    <string name="recognition_lbph_radius_default">1</string>
+    <string name="recognition_lbph_radius_title">LBPH radius</string>
+    <string name="recognition_normalization">recognition_normalization</string>
+    <string name="recognition_normalization_default">true</string>
+    <string name="recognition_normalization_title">Perform normalization</string>
+    <string name="recognition_recognizer_type">recognition_type</string>
+    <string name="recognition_recognizer_type_default">LBPH</string>
+    <string name="recognition_recognizer_type_title">Recognition type</string>
+    <string name="recognition_threshold">recognition_threshold</string>
+    <string name="recognition_threshold_default">100</string>
+    <string name="recognition_threshold_max_value">500</string>
+    <string name="recognition_threshold_title">Recognition threshold</string>
+    <string name="title_activity_face_decection">FaceDecectionAndExtractionActivity</string>
+    <string name="title_activity_take_photo_with_detection">TakePhotoWithDetectionActivity</string>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        
+    </style>
+    <style name="PersonListItem" parent="@android:style/TextAppearance.Medium">
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#111</item>
+    </style>
+</resources>
